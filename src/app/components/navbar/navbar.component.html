@@ -1,0 +1,57 @@
+<mat-toolbar class="page-header">
+  <div class="title-bar">
+    <div class="left-side">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+      <a routerLink="/" class="menu-title">E - Commerce Website Title</a>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-header">
+        <mat-icon>call</mat-icon>
+        CONTACT US AT
+      </div>
+      <div>0915 147 1977</div>
+      <div>0922 685 0003</div>
+      <div>(02) 7799 3089</div>
+      <div>(02) 8652 1240</div>
+    </div>
+  </div>
+
+  <div class="menu-bar">
+    <button
+      mat-button
+      routerLink="/"
+      routerLinkActive="active"
+      class="menu-button"
+    >
+      Home
+    </button>
+    <mat-divider vertical></mat-divider>
+    <button
+      mat-button
+      routerLink="/product-details"
+      routerLinkActive="active"
+      class="menu-button"
+    >
+      Products
+    </button>
+    <mat-divider vertical></mat-divider>
+    <button
+      mat-button
+      routerLink="/about"
+      routerLinkActive="active"
+      class="menu-button"
+    >
+      About
+    </button>
+    <mat-divider vertical></mat-divider>
+    <button
+      mat-button
+      routerLink="/contact"
+      routerLinkActive="active"
+      class="menu-button"
+    >
+      Contact
+    </button>
+  </div>
+</mat-toolbar>
