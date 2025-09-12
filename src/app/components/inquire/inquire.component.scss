@@ -1,0 +1,75 @@
+.inquire-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 100px;
+  background-color: transparent;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 30px 50px;
+  overflow: hidden;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .inquire-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+
+    .inquire-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #fefcfc;
+      }
+
+      input,
+      textarea {
+        padding: 12px 14px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        width: 50em;
+
+        &:focus {
+          border-color: #1976d2;
+          box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+    }
+
+    button {
+      padding: 14px;
+      background: #1976d2;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 200px;
+      transition: background 0.25s ease, transform 0.1s ease-in-out;
+
+      &:hover {
+        background: #145ca1;
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+  }
+}
