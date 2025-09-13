@@ -5,13 +5,18 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(14, 78, 216, 0.7);
+  background: linear-gradient(
+    90deg,
+    rgba(59, 93, 168, 0.9) 0%,
+    rgba(18, 60, 149, 0.95) 100%
+  );
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  height: 170px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  height: 140px;
+  transition: all 0.3s ease-in-out;
 
   .title-bar {
     display: flex;
@@ -22,17 +27,22 @@
     .left-side {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
 
       .logo {
-        width: 120px; // smaller, keeps alignment
-        height: 120px;
+        width: 100px;
+        height: 100px;
         object-fit: contain;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05) rotate(-2deg);
+        }
       }
 
       .menu-title {
-        font-size: 22px;
-        font-weight: bold;
+        font-size: 24px;
+        font-weight: 700;
         color: #f6f9fa;
         font-family: "Roboto", sans-serif;
         text-decoration: none;
@@ -40,6 +50,7 @@
 
         &:hover {
           color: #1ccab3;
+          letter-spacing: 1px;
         }
       }
     }
@@ -47,10 +58,10 @@
     .contact-info {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 28px;
       color: #fff;
       font-size: 14px;
-      margin-right: 35px;
+      margin-right: 20px;
 
       .contact-header {
         display: flex;
@@ -59,7 +70,8 @@
         font-weight: bold;
 
         mat-icon {
-          font-size: 18px;
+          font-size: 20px;
+          animation: bounce 2s infinite;
         }
       }
 
@@ -68,6 +80,7 @@
         flex-direction: column;
         gap: 2px;
         text-align: left;
+        animation: fadeInUp 0.5s ease-in-out;
       }
     }
   }
@@ -75,7 +88,7 @@
 
 .menu-bar {
   position: fixed;
-  top: 170px;
+  top: 140px;
   left: 0;
   right: 0;
   width: 100%;
@@ -85,23 +98,24 @@
   justify-content: center;
   align-items: center;
   padding: 6px 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
   height: 50px;
+  transition: all 0.3s ease-in-out;
 
   .menu-button {
     background-color: transparent;
     color: #f7f7f8;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
-    padding: 6px 10px;
-    border-radius: 4px;
+    padding: 8px 14px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
       background-color: #1ccab3;
-      transform: translateY(-1px);
+      transform: translateY(-3px) scale(1.05);
     }
 
     &:active,
@@ -113,8 +127,73 @@
 
   mat-divider {
     height: 20px;
-    margin: 0 6px;
+    margin: 0 8px;
     background-color: #fff;
     width: 2px;
+  }
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .page-header {
+    height: auto;
+    padding: 12px;
+
+    .title-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+
+      .left-side {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .logo {
+          width: 80px;
+          height: 80px;
+        }
+
+        .menu-title {
+          font-size: 20px;
+        }
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 8px;
+        margin-right: 0;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .menu-bar {
+    top: unset;
+    bottom: 0;
+    height: 60px;
+    justify-content: space-around;
+    padding: 8px;
+    border-top: 2px solid #1ccab3;
   }
 }

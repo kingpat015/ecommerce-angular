@@ -29,7 +29,7 @@ export class NavbarComponent {
     { id: 'home', name: 'Home' },
     { id: 'products', name: 'Products' },
     { id: 'about', name: 'About' },
-    { id: 'contact', name: 'Contact' },
+    { id: 'inquire', name: 'Inquire' },
   ];
 
   scrollToSection(id: string) {
