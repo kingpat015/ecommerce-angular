@@ -15,9 +15,23 @@
       rel="stylesheet"
     />
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRCPgeJcLlBNHSBHifeO1yk7HMb3tcoS0"></script>
+    <!-- Load Google Maps API asynchronously -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRCPgeJcLlBNHSBHifeO1yk7HMb3tcoS0&callback=initMap"
+    ></script>
   </head>
   <body class="mat-typography">
     <app-root></app-root>
+
+    <!-- Optional: define a global initMap function -->
+    <script>
+      function initMap() {
+        // This will be called when the Google Maps API is ready
+        console.log("Google Maps API loaded!");
+        // You can also initialize a default map here if needed
+      }
+    </script>
   </body>
 </html>

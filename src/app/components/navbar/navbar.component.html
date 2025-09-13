@@ -23,38 +23,41 @@
   <div class="menu-bar">
     <button
       mat-button
-      routerLink="/"
-      routerLinkActive="active"
       class="menu-button"
+      [class.active]="activeSection === 'home'"
+      (click)="scrollToSection('home')"
     >
       Home
     </button>
     <mat-divider vertical></mat-divider>
+
     <button
       mat-button
-      routerLink="/product-details"
-      routerLinkActive="active"
       class="menu-button"
-    >
-      Products
-    </button>
-    <mat-divider vertical></mat-divider>
-    <button
-      mat-button
-      routerLink="/about"
-      routerLinkActive="active"
-      class="menu-button"
+      [class.active]="activeSection === 'about'"
+      (click)="scrollToSection('about')"
     >
       About
     </button>
     <mat-divider vertical></mat-divider>
+
     <button
       mat-button
-      routerLink="/contact"
-      routerLinkActive="active"
       class="menu-button"
+      [class.active]="activeSection === 'products'"
+      (click)="scrollToSection('products')"
     >
-      Contact
+      Products
+    </button>
+    <mat-divider vertical></mat-divider>
+
+    <button
+      mat-button
+      class="menu-button"
+      [class.active]="activeSection === 'inquire'"
+      (click)="scrollToSection('inquire')"
+    >
+      Inquire
     </button>
   </div>
 </mat-toolbar>

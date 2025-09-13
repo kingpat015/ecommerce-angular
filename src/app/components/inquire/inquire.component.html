@@ -1,27 +1,24 @@
 <div class="inquire-container">
-  <form action="form" class="inquire-form">
-    <div class="inquire-form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" class="inquire-input" />
-    </div>
-    <div class="inquire-form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your email" class="inquire-input" />
-    </div>
-    <div class="inquire-form-group">
-      <label for="email">Phone Number</label>
-      <input type="email" id="email" name="email" placeholder="Your email" class="inquire-input" />
-    </div>
-    <div class="inquire-form-group">
-      <label for="message">Message</label>
-      <textarea
-        id="message"
-        name="message"
-        class="inquire-input"
-        placeholder="Your message"
-      ></textarea>
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+<form #inquireForm="ngForm" (ngSubmit)="sendEmail(inquireForm)" class="inquire-form">
+  <div class="inquire-form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="from_name" ngModel placeholder="Your name" class="inquire-input" required />
+  </div>
+  <div class="inquire-form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="from_email" ngModel placeholder="Your email" class="inquire-input" required />
+  </div>
+  <div class="inquire-form-group">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" ngModel placeholder="Your phone number" class="inquire-input" />
+  </div>
+  <div class="inquire-form-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" ngModel class="inquire-input" placeholder="Your message" required></textarea>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+
   <app-map #mapComp></app-map>
 </div>

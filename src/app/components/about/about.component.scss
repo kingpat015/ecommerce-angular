@@ -1,0 +1,112 @@
+.about-section {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(25, 118, 210, 0.7));
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(10px);
+
+  .about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 1.2s ease forwards;
+
+    .about-text {
+      animation: slideLeft 1s ease forwards;
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, #a6ea29, #f9c846);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #f5f5f5;
+        margin-bottom: 18px;
+      }
+    }
+
+    .about-image {
+      opacity: 0;
+      transform: scale(0.95) translateX(50px);
+      animation: zoomInRight 1.2s ease forwards 0.3s;
+
+      img {
+        width: 100%;
+        border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        transition: transform 0.4s ease;
+      }
+
+      img:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomInRight {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 40px 20px;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+    animation: fadeUp 1s ease forwards;
+
+    .about-text {
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .about-image {
+      animation: fadeUp 1s ease forwards 0.3s;
+    }
+  }
+}

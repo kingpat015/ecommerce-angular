@@ -6,47 +6,38 @@
     "ecommerce-page": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
+        "@schematics/angular:component": { "style": "scss" }
       },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/ecommerce-page",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "assets": [{ "glob": "**/*", "input": "public", "output": "/" }],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "800kb",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1MB",
+                  "maximumError": "1.5MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -54,7 +45,9 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": true,
+              "sourceMap": false
             },
             "development": {
               "optimization": false,
@@ -67,12 +60,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "ecommerce-page:build:production"
-            },
-            "development": {
-              "buildTarget": "ecommerce-page:build:development"
-            }
+            "production": { "buildTarget": "ecommerce-page:build:production" },
+            "development": { "buildTarget": "ecommerce-page:build:development" }
           },
           "defaultConfiguration": "development"
         },
@@ -89,23 +78,21 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "assets": [{ "glob": "**/*", "input": "public", "output": "/" }],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
-            "scripts": []
+
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           }
         }
       }
     }
   },
-  "cli": {
-    "analytics": "1553082c-742d-4c8a-a850-feab7f7d7674"
-  }
+  "cli": { "analytics": "1553082c-742d-4c8a-a850-feab7f7d7674" }
 }
